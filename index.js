@@ -20,7 +20,7 @@ async function main() {
     let input = process.argv[2];
 
     if (input.endsWith('.txt')) {
-      input = fs.readFileSync(input, 'utf8');
+      input = fs.readFileSync(input, 'utf8'); // Have to fix file input. figure out const filePath from fileName
     }
 
     const result = await analyzeText(input);
