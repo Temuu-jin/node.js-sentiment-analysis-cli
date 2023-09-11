@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import axios from 'axios';
+import path from 'path';
 
 // Function to analyze text
 async function analyzeText(text) {
@@ -20,7 +21,8 @@ async function main() {
     let input = process.argv[2];
 
     if (input.endsWith('.txt')) {
-      input = fs.readFileSync(input, 'utf8'); // Have to fix file input. figure out const filePath from fileName
+      const filePath = path.resolve(input);
+      input = fs.readFileSync(filePath, 'utf8');
     }
 
     const result = await analyzeText(input);
